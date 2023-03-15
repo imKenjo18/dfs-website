@@ -41,6 +41,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $param_deduction = $quantity - $deduction;
 
       if (mysqli_stmt_execute($stmt)) {
+        $addLogSQL = "INSERT INTO `logs` (editor, message) VALUES ('" . $_SESSION['privilege'] . "', 'deducted the QUANTITY of (Barcode: " . $productResult['barcode'] . " | Name: " . $productResult['name'] . " | Stock Date: " . substr($productResult['stock_date'], 0, 10) . ") from " . $productResult['quantity'] . " to $param_deduction')";
+        $addLogQuery = mysqli_query($connection, $addLogSQL);
+
         header('location: dashboard');
         exit;
       } else {
@@ -91,12 +94,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               </div>
 
               <div class="form-group">
-                <label>Deduct How Many?</label>
+                <label>Amount to Deduct</label>
                 <input class="form-control <?php echo (!empty($deduction_err)) ? 'is-invalid' : ''; ?>" name="deduction">
                 <span class="invalid-feedback"><?php echo $deduction_err; ?></span>
               </div>
 
-            <input class="mt-4 btn btn-primary btn-block" type="submit" value="DEDUCT QUANTITY">
+            <input class="mt-4 btn btn-primary btn-block" type="submit" value="DEDUCT">
             </form>
             <form method="POST">
               <button class="mt-2 btn btn-secondary btn-block" name="cancel">CANCEL</button>

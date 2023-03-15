@@ -39,13 +39,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   
     if ($stock_date != date('Y-m-d')) {
       $addProductSQL = "INSERT INTO `products` (`barcode`, `quantity`, `name`, `stock_date`, `price`) VALUES ('$barcode', '$quantity', '$product_name', '$stock_date', '$price')";
-      $addProductQuery = mysqli_query($connection, $addProductSQL);
-      $add_success = 'Successfully added.';
     } else {
       $addProductSQL = "INSERT INTO `products` (`barcode`, `quantity`, `name`, `stock_date`, `price`) VALUES ('$barcode', '$quantity', '$product_name', CURRENT_TIMESTAMP, '$price')";
-      $addProductQuery = mysqli_query($connection, $addProductSQL);
-      $add_success = 'Successfully added.';
     }
+
+    $addProductQuery = mysqli_query($connection, $addProductSQL);
+    $add_success = 'Successfully added.';
+
+    $addLogSQL = "INSERT INTO `logs` (editor, message) VALUES ('" . $_SESSION['privilege'] . "', 'added a product. (Barcode: $barcode | Name: $product_name | Quantity: $quantity | Price: $price | Stock Date: $stock_date)')";
+    $addLogQuery = mysqli_query($connection, $addLogSQL);
   }
 }
 ?>

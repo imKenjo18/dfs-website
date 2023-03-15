@@ -8,7 +8,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
 require_once 'assets/dbhandler.php';
 
-$search = $_GET['barcode'];
+$search = trim($_GET['barcode']);
 
 if (empty($search)) {
   header('location: dashboard');
@@ -45,7 +45,7 @@ if (empty($search)) {
   $productSQL = mysqli_query($connection, $productCheck);
 
   if ($_SESSION['privilege'] == 'admin') {
-    echo '<a class="nav-link" href="add-product"><button class="btn btn-success">Add Product</button></a><a class="nav-link" href="manage-accounts"><button class="btn btn-info">Manage Accounts</button></a><a class="nav-link" href="assets/logout"><button id="logout" class="btn btn-danger" name="logout">Logout</button></a></div></nav>';
+    echo '<a class="nav-link" href="add-product"><button class="btn btn-success">Add Product</button></a><a class="nav-link" href="manage-accounts"><button class="btn btn-info">Manage Accounts</button></a><a class="nav-link" href="logs"><button id="logs" class="btn btn-warning" name="logs">Logs</button></a><a class="nav-link" href="assets/logout"><button id="logout" class="btn btn-danger" name="logout">Logout</button></a></div></nav>';
 
     // echo '<table id="product-table" class="product-table"><tr><th>Quantity</th><th>Product Name</th><th>Stock Date</th><th>Price</th><th>Total</th><th></th></tr>';
 

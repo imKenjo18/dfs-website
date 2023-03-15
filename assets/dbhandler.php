@@ -22,4 +22,7 @@ $accTableQuery = mysqli_query($connection, $createAccTable);
 
 $createProductTable = "CREATE TABLE IF NOT EXISTS `client_website`.`products` (`id` INT NOT NULL AUTO_INCREMENT , `barcode` VARCHAR(255) NOT NULL , `quantity` INT NOT NULL , `name` VARCHAR(255) NOT NULL , `stock_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , `updated_on` TIMESTAMP on update CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , `price` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
 $productTableQuery = mysqli_query($connection, $createProductTable);
+
+$createLogTable = "CREATE TABLE IF NOT EXISTS `client_website`.`logs` (`id` INT NOT NULL AUTO_INCREMENT , `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , `editor` VARCHAR(255) NOT NULL , `message` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+$logTableQuery = mysqli_query($connection, $createLogTable);
 ?>

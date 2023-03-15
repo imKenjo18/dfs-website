@@ -55,6 +55,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $param_price = $price;
 
       if (mysqli_stmt_execute($stmt)) {
+        $addLogSQL = "INSERT INTO `logs` (editor, message) VALUES ('" . $_SESSION['privilege'] . "', 'edited a product. (Barcode: " . $productResult['barcode'] . " → $barcode | Name: " . $productResult['name'] . " → $product_name | Quantity: " . $productResult['quantity'] . " → $quantity | Price: " . $productResult['price'] . " → $price | Stock Date: " . substr($productResult['stock_date'], 0, 10) . " → $stock_date)')";
+        $addLogQuery = mysqli_query($connection, $addLogSQL);
+
         header('location: dashboard');
         exit;
       } else {
