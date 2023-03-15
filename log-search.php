@@ -69,7 +69,7 @@ if (empty($search)) {
                   <tbody>
             
                   <?php
-                  $logCheck = "SELECT * FROM `logs` WHERE `timestamp` LIKE '%$search%'ORDER BY `logs`.`id` DESC";
+                  $logCheck = "SELECT * FROM `logs` WHERE `timestamp` LIKE '%$search%' ORDER BY `logs`.`id` DESC";
                   $logSQL = mysqli_query($connection, $logCheck);
 
                   while ($row = mysqli_fetch_assoc($logSQL)) {
