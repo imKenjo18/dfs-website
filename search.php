@@ -25,16 +25,20 @@ if (empty($search)) {
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"> -->
   <link rel="stylesheet" href="assets/style.css">
 </head>
-<body style="background-color: #e3d5ca;">
-  <nav class="navbar fixed-top navbarScroll shadow-sm" style="background-color: #e3d5ca;">
+<body style="background: radial-gradient(circle at 50% 100%, #ffffff80 5%, #ffffff 5% 10%, #ffffff80 10% 15%, #ffffff 15% 20%, #ffffff80 20% 25%, #ffffff 25% 30%, #ffffff80 30% 35%, #ffffff 35% 40%, transparent 40%), radial-gradient(circle at 100% 50%, #ffffff80 5%, #ffffff 5% 10%, #ffffff80 10% 15%, #ffffff 15% 20%, #ffffff80 20% 25%, #ffffff 25% 30%, #ffffff80 30% 35%, #ffffff 35% 40%, transparent 40%), radial-gradient(circle at 50% 0%, #ffffff80 5%, #ffffff 5% 10%, #ffffff80 10% 15%, #ffffff 15% 20%, #ffffff80 20% 25%, #ffffff 25% 30%, #ffffff80 30% 35%, #ffffff 35% 40%, transparent 40%), radial-gradient(circle at 0 50%, #ffffff80 5%, #ffffff 5% 10%, #ffffff80 10% 15%, #ffffff 15% 20%, #ffffff80 20% 25%, #ffffff 25% 30%, #ffffff80 30% 35%, #ffffff 35% 40%, transparent 40%);
+        background-size: 1em 1em;
+        background-color: #bee1e6;
+        opacity: 1">
+
+  <nav class="navbar fixed-top navbarScroll shadow-sm" style="background-color: #bee1e6;">
     <div class="container">
-      <a href="dashboard" class="navbar-brand"><h2>Dashboard</h2></a>
+      <a href="dashboard" class="navbar-brand"><h2 class="text-dark">Dashboard</h2></a>
       <form action="search">
         <div class="input-group">
           <div class="form-outline">
             <input type="search" id="form1" class="form-control" placeholder="Search Barcode" name="barcode">
           </div>
-          <button type="submit" class="btn btn-primary">
+          <button type="submit" class="btn btn-info">
             <img class="icons" id="search-svg" src="assets/search.svg" width="20" height="20" alt="Search"></img>
           </button>
         </div>
@@ -45,7 +49,7 @@ if (empty($search)) {
   $productSQL = mysqli_query($connection, $productCheck);
 
   if ($_SESSION['privilege'] == 'admin') {
-    echo '<a class="nav-link" href="add-product"><button class="btn btn-success">Add Product</button></a><a class="nav-link" href="manage-accounts"><button class="btn btn-info">Manage Accounts</button></a><a class="nav-link" href="logs"><button id="logs" class="btn btn-warning" name="logs">Logs</button></a><a class="nav-link" href="assets/logout"><button id="logout" class="btn btn-danger" name="logout">Logout</button></a></div></nav>';
+    echo '<a class="nav-link" href="add-product"><button class="btn btn-info">Add Product</button></a><a class="nav-link" href="manage-accounts"><button class="btn btn-info">Manage Accounts</button></a><a class="nav-link" href="logs"><button id="logs" class="btn btn-info" name="logs">Logs</button></a><a class="nav-link" href="assets/logout"><button id="logout" class="btn btn-danger" name="logout">Logout</button></a></div></nav>';
 
     // echo '<table id="product-table" class="product-table"><tr><th>Quantity</th><th>Product Name</th><th>Stock Date</th><th>Price</th><th>Total</th><th></th></tr>';
 
@@ -58,7 +62,7 @@ if (empty($search)) {
       echo '<tr><td>' . $row['barcode'] . '</td><td>' . $row['quantity'] . '</td><td>' . $row['name'] . '</td><td>' . $stockDate . '</td><td>₱' . $row['price'] . '</td><td>₱'. $productTotal . '</td><td class="functions"><a href="edit?id=' . $row['id'] .'" title="Edit"><img class="icons" id="edit-svg" src="assets/edit.svg" width="25" height="25" alt="Edit"></img></a><a href="deduct?id=' . $row['id'] .'" title="Deduct Quantity"><img class="icons" id="deduct-svg" src="assets/deduct.svg" width="28" height="28" alt="Deduct Quantity"></img></a><a onClick="return confirm(\'Proceed to Delete?\');" href="delete?id=' . $productId . '" title="Delete"><img class="icons" id="delete-svg" src="assets/delete.svg" width="28" height="28" alt="Delete"></img></a></td></tr>';
     }
   } else if ($_SESSION['privilege'] == 'user') { // FOR THE USER SIDE ! ! !
-    echo '<a class="nav-link" href="add-product"><button class="btn btn-success">Add Product</button></a><a class="nav-link" href="assets/logout"><button id="logout" class="btn btn-danger" name="logout">Logout</button></a></div></nav>';
+    echo '<a class="nav-link" href="add-product"><button class="btn btn-info">Add Product</button></a><a class="nav-link" href="assets/logout"><button id="logout" class="btn btn-danger" name="logout">Logout</button></a></div></nav>';
 
     // echo '<table id="product-table" class="product-table"><tr><th>Quantity</th><th>Product Name</th><th>Stock Date</th></tr>';
 
