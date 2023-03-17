@@ -46,7 +46,7 @@ require_once 'assets/dbhandler.php';
 
     // echo '<table id="product-table" class="product-table"><tr><th>Quantity</th><th>Product Name</th><th>Stock Date</th><th>Price</th><th>Total</th><th></th></tr>';
 
-    echo '<section id="dashboard" class="intro"><div class="mask d-flex align-items-center h-100"><div class="container mt-5 pt-5"><div class="row justify-content-center"><div class="col-12"><div class="table-responsive shadow-lg bg-white" style="border-radius: 1rem;"><div class="card-body text-center" style="border-radius: 1rem;"><table class="table mb-0"><thead><tr><th scope="col">Barcode</th><th scope="col">Quantity</th><th scope="col">Product Name</th><th scope="col">Stock Date</th><th scope="col">Price</th><th scope="col">Total</th><th scope="col"></th></tr></thead><tbody>';
+    echo '<section id="dashboard" class="intro"><div class="mask d-flex align-items-center h-100"><div class="container mt-5 pt-5"><div class="row justify-content-center"><div class="mt-5 pt-5 col-12"><div class="mt-5 table-responsive shadow-lg bg-white" style="border-radius: 1rem;"><div class="card-body text-center" style="border-radius: 1rem;"><table class="table mb-0"><thead><tr><th scope="col">Barcode</th><th scope="col">Quantity</th><th scope="col">Product Name</th><th scope="col">Stock Date</th><th scope="col">Price</th><th scope="col">Total</th><th scope="col"></th></tr></thead><tbody>';
 
     while ($row = mysqli_fetch_assoc($productSQL)) {
       $productTotal = $row['quantity'] * $row['price'];
@@ -59,7 +59,7 @@ require_once 'assets/dbhandler.php';
 
     // echo '<table id="product-table" class="product-table"><tr><th>Quantity</th><th>Product Name</th><th>Stock Date</th></tr>';
 
-    echo '<section><section class="intro"><div class="mask d-flex align-items-center h-100"><div class="container mt-5 pt-5"><div class="row justify-content-center"><div class="col-12"><div class="table-responsive shadow-lg bg-white" style="border-radius: 1rem;"><div class="card-body text-center" style="border-radius: 1rem;"><table class="table mb-0"><thead><tr><th scope="col">Barcode</th><th scope="col">Quantity</th><th scope="col">Product Name</th><th scope="col">Stock Date</th><th scope="col">Price</th><th scope="col">Total</th><th scope="col"></th></tr></thead><tbody>';
+    echo '<section><section class="intro"><div class="mask d-flex align-items-center h-100"><div class="container mt-5 pt-5"><div class="row justify-content-center"><div class="mt-5 col-12"><div class="table-responsive shadow-lg bg-white" style="border-radius: 1rem;"><div class="card-body text-center" style="border-radius: 1rem;"><table class="table mb-0"><thead><tr><th scope="col">Barcode</th><th scope="col">Quantity</th><th scope="col">Product Name</th><th scope="col">Stock Date</th><th scope="col">Price</th><th scope="col">Total</th><th scope="col"></th></tr></thead><tbody>';
 
     while ($row = mysqli_fetch_assoc($productSQL)) {
       $productTotal = $row['quantity'] * $row['price'];
