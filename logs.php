@@ -32,9 +32,9 @@ require_once 'assets/dbhandler.php';
         background-color: #bee1e6;
         opacity: 1">
         
-  <nav class="navbar fixed-top navbarScroll shadow" style="background-color: #bee1e6;">
+  <nav class="navbar fixed-top navbarScroll shadow navbar-expand-lg" style="background-color: #bee1e6;">
     <div class="container">
-      <a href="dashboard" class="navbar-brand"><h2 class="text-dark">Dashboard</h2></a>
+      <a href="dashboard" class="navbar-brand navbar-inverse"><h2 class="text-dark">Dashboard</h2></a>
       <form autocomplete="off" action="search">
         <div class="input-group">
           <div class="form-outline">
@@ -50,15 +50,15 @@ require_once 'assets/dbhandler.php';
       <a class="nav-link" href="logs"><button id="logs" class="btn btn-info" name="logs">Logs</button></a>
       <a class="nav-link" href="assets/logout"><button id="logout" class="btn btn-danger" name="logout">Logout</button></a>
     </div>
-  </nav>
-</form>
+  </nav><br><br>
 
+<div class="col">
   <section id="dashboard" class="intro">
     <div class="mask d-flex align-items-center h-100">
       <div class="container mt-5 pt-5">
         <div class="row justify-content-center">
-          <div class="mt-5 pt-3 col-12">
-            <div class="mt-5 pt-5 table-responsive shadow-lg bg-white" style="border-radius: 1rem;">
+          <div class=" col-12">
+            <div class="mt-5 table-responsive table-striped shadow-lg bg-white" style="border-radius: 1rem;">
               <div class="card-body" style="border-radius: 1rem;">
                 <form autocomplete="off" action="log-search">
                   <table class="table mb-0">
@@ -98,5 +98,6 @@ require_once 'assets/dbhandler.php';
     </div>
   </div>
 </section>
+</div>
 </body>
 </html>
