@@ -122,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <input class="form-control" name="price" value="<?php echo $productResult['price']; ?>">
               </div>
 
-            <input class="mt-4 btn btn-primary btn-block" type="submit" value="CONFIRM EDIT">
+            <input class="mt-4 btn btn-primary btn-block" type="submit" value="EDIT">
             </form>
             <form method="POST">
               <button class="mt-2 btn btn-secondary btn-block" name="cancel">CANCEL</button>

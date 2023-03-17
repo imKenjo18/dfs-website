@@ -98,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
               <div class="form-group">
                 <label>Amount to Deduct</label>
-                <input class="form-control <?php echo (!empty($deduction_err)) ? 'is-invalid' : ''; ?>" name="deduction">
+                <input type="number" class="form-control <?php echo (!empty($deduction_err)) ? 'is-invalid' : ''; ?>" name="deduction">
                 <span class="invalid-feedback"><?php echo $deduction_err; ?></span>
               </div>
 

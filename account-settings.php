@@ -147,7 +147,7 @@ if ($accCheckResult == 1) {
                 </div>
 
                 <div class="form-group">
-                  <input type="submit" class="btn btn-primary p-2 btn-block" name="change_username" value="Change Username">
+                  <input type="submit" class="btn btn-primary p-2 btn-block" name="change_username" value="CHANGE USERNAME">
                 </div>
               </form>
 
@@ -169,12 +169,12 @@ if ($accCheckResult == 1) {
                 </div>
 
                 <div class="form-group">
-                  <input type="submit" class="btn btn-primary p-2 btn-block" name="change_password" value="Change Password">
+                  <input type="submit" class="btn btn-primary p-2 btn-block" name="change_password" value="CHANGE PASSWORD">
                 </div>
               </form>
 
             <form method="POST">
-              <button class="btn btn-secondary" name="back">Back</button>
+              <button class="btn btn-secondary" name="back">BACK</button>
                 <?php
                 if (isset($_POST['back'])) {
                   header('location: manage-accounts');

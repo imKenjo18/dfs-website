@@ -65,14 +65,14 @@ if (isset($_POST['back'])) {
                   </table>
                   <?php
                   if ($accCheckResult < 2) {
-                    echo '<button class="btn btn-primary" name="add_user" style="width: 53%;">Add Account</button>';
+                    echo '<button class="btn btn-primary" name="add_user" style="width: 53%;">ADD ACCOUNT</button>';
 
                     if (isset($_POST['add_user'])) {
                       header('location: register');
                     }
                   }
                   ?>
-                  <button class="btn btn-secondary mt-2" name="back" style="width: 53%;">Dashboard</button>
+                  <button class="btn btn-secondary mt-2" name="back" style="width: 53%;">DASHBOARD</button>
                 </form>
               </div>
             </div>
