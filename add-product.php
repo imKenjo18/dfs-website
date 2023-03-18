@@ -12,6 +12,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 // }
 
 require_once 'assets/dbhandler.php';
+require_once 'assets/functions.php';
 
 $barcode_err = $quantity_err = $product_name_err = $price_err = $add_success = '';
 
@@ -35,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (empty($barcode_err) && empty($quantity_err) && empty($product_name_err) && empty($price_err)) {
     $quantity = trim($_POST['quantity']);
     $stock_date = trim($_POST['stock_date']);
-    $price = floatval(trim($_POST['price']));
+    $price = str_to_float(trim($_POST['price']));
   
     if ($stock_date != date('Y-m-d')) {
       $addProductSQL = "INSERT INTO `products` (`barcode`, `quantity`, `name`, `stock_date`, `price`) VALUES ('$barcode', '$quantity', '$product_name', '$stock_date', '$price')";

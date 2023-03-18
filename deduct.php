@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
               <div class="form-group">
                 <label>Barcode</label>
-                <input disabled id="barcode" class="form-control" name="barcode" value="<?php echo $productResult['barcode']; ?>">
+                <input disabled class="form-control" name="barcode" value="<?php echo $productResult['barcode']; ?>">
               </div>
 
               <div class="form-group">
@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
               <div class="form-group">
                 <label>Quantity</label>
-                <input disabled class="form-control" type="number" name="quantity" value="<?php echo $productResult['quantity']; ?>">
+                <input disabled class="form-control" name="quantity" value="<?php echo number_format($productResult['quantity']); ?>">
               </div>
 
               <div class="form-group">

@@ -225,6 +225,5 @@ if ($accCheckResult < 1) {
     </div>
   </div>
 </section>
-
 </body>
 </html>

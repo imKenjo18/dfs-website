@@ -61,7 +61,7 @@ html {
 
 #edit-svg:hover {
   filter: invert(25%) sepia(51%) saturate(2878%) hue-rotate(180deg) brightness(104%) contrast(90%);
-  animation: horizontal-shake 2s cubic-bezier(.36,.07,.19,.97) both;
+  animation: horizontal-shake 1.5s cubic-bezier(.36,.07,.19,.97) both;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   perspective: 1000px;

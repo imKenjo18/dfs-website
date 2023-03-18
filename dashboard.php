@@ -7,6 +7,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 }
 
 require_once 'assets/dbhandler.php';
+require_once 'assets/functions.php';
 ?>
 
 <!DOCTYPE html>
@@ -51,9 +52,15 @@ require_once 'assets/dbhandler.php';
 
     while ($row = mysqli_fetch_assoc($productSQL)) {
       $productTotal = $row['quantity'] * $row['price'];
+
+      $quantityFormat = number_format($row['quantity']);
+      $priceFormat = count_format_dec($row['price']);
+      $totalFormat = count_format_dec($productTotal);
+
       $stockDate = substr($row['stock_date'], 0, 10);
       $productId = $row['id'];
-      echo '<tr><td>' . $row['barcode'] . '</td><td>' . $row['quantity'] . '</td><td>' . $row['name'] . '</td><td>' . $stockDate . '</td><td>₱' . $row['price'] . '</td><td>₱'. $productTotal . '</td><td class="functions"><a href="edit?id=' . $row['id'] .'" title="Edit"><img class="icons" id="edit-svg" src="assets/edit.svg" width="25" height="25" alt="Edit"></img></a><a href="deduct?id=' . $row['id'] .'" title="Deduct Quantity"><img class="icons" id="deduct-svg" src="assets/deduct.svg" width="28" height="28" alt="Deduct Quantity"></img></a><a onClick="return confirm(\'Proceed to Delete?\');" href="delete?id=' . $productId . '" title="Delete"><img class="icons" id="delete-svg" src="assets/delete.svg" width="28" height="28" alt="Delete"></img></a></td></tr>';
+
+      echo '<tr><td>' . $row['barcode'] . '</td><td>' . $quantityFormat . '</td><td>' . $row['name'] . '</td><td>' . $stockDate . '</td><td>₱' . $priceFormat . '</td><td>₱'. $totalFormat . '</td><td class="functions"><a href="edit?id=' . $row['id'] .'" title="Edit"><img class="icons" id="edit-svg" src="assets/edit.svg" width="25" height="25" alt="Edit"></img></a><a href="deduct?id=' . $row['id'] .'" title="Deduct Quantity"><img class="icons" id="deduct-svg" src="assets/deduct.svg" width="28" height="28" alt="Deduct Quantity"></img></a><a onClick="return confirm(\'Proceed to Delete?\');" href="delete?id=' . $productId . '" title="Delete"><img class="icons" id="delete-svg" src="assets/delete.svg" width="28" height="28" alt="Delete"></img></a></td></tr>';
     }
   } else if ($_SESSION['privilege'] == 'user') { // FOR THE USER SIDE ! ! !
     echo '<a class="nav-link" href="add-product"><button class="btn btn-info">Add Product</button></a><a class="nav-link" href="assets/logout"><button id="logout" class="btn btn-danger" name="logout">Logout</button></a></div></nav>';
@@ -64,14 +71,20 @@ require_once 'assets/dbhandler.php';
 
     while ($row = mysqli_fetch_assoc($productSQL)) {
       $productTotal = $row['quantity'] * $row['price'];
+
+      $quantityFormat = number_format($row['quantity']);
+      $priceFormat = count_format_dec($row['price']);
+      $totalFormat = count_format_dec($productTotal);
+
       $stockDate = substr($row['stock_date'], 0, 10);
       $productId = $row['id'];
-      echo '<tr><td>' . $row['barcode'] . '</td><td>' . $row['quantity'] . '</td><td>' . $row['name'] . '</td><td>' . $stockDate . '</td><td>₱' . $row['price'] . '</td><td>₱'. $productTotal . '</td><td class="functions"><a href="deduct?id=' . $row['id'] .'" title="Deduct Quantity"><img class="icons" id="deduct-svg" src="assets/deduct.svg" width="25" height="25" alt="Deduct Quantity"></img></a></td></tr>';
+
+      echo '<tr><td>' . $row['barcode'] . '</td><td>' . $quantityFormat . '</td><td>' . $row['name'] . '</td><td>' . $stockDate . '</td><td>₱' . $priceFormat . '</td><td>₱'. $totalFormat . '</td><td class="functions"><a href="deduct?id=' . $row['id'] .'" title="Deduct Quantity"><img class="icons" id="deduct-svg" src="assets/deduct.svg" width="25" height="25" alt="Deduct Quantity"></img></a></td></tr>';
     }
   }
 
   echo '</tbody></table></div></div></div></div></div></div></section>';
   ?>
-  <script src="main.js"></script>
+  <!-- <script src="assets/main.js"></script> -->
 </body>
 </html>

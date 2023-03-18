@@ -91,6 +91,6 @@ require_once 'assets/dbhandler.php';
       </div>
     </section>
   </div>
-<script src="main.js"></script>
+<!-- <script src="assets/main.js"></script> -->
 </body>
 </html>

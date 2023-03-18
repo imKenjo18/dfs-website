@@ -12,6 +12,7 @@ if ($_SESSION['privilege'] != 'admin') {
 }
 
 require_once 'assets/dbhandler.php';
+require_once 'assets/functions.php';
 
 $barcode_err = $product_name_err = '';
 
@@ -45,8 +46,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($stmt = mysqli_prepare($connection, $sql)) {
       mysqli_stmt_bind_param($stmt, "sisss", $param_barcode, $param_quantity, $param_product_name, $param_stock_date, $param_price);
       
-      $quantity = trim($_POST['quantity']);
-      $price = floatval(trim($_POST['price']));
+      $quantity = intval(str_to_float(trim($_POST['quantity'])));
+      $price = str_to_float(trim($_POST['price']));
       
       $param_barcode = $barcode;
       $param_quantity = $quantity;
@@ -103,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
               <div class="form-group">
                 <label>Quantity</label>
-                <input class="form-control" type="number" name="quantity" value="<?php echo $productResult['quantity']; ?>">
+                <input class="form-control" name="quantity" value="<?php echo number_format($productResult['quantity']); ?>">
               </div>
 
               <div class="form-group">
@@ -119,7 +120,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
               <div class="form-group">
                 <label>Price</label>
-                <input class="form-control" name="price" value="<?php echo $productResult['price']; ?>">
+                <input class="form-control" name="price" value="<?php echo count_format_dec($productResult['price']); ?>">
               </div>
 
             <input class="mt-4 btn btn-primary btn-block" type="submit" value="EDIT">
@@ -133,5 +134,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
   </div>
 </section>
+<script src="assets/main.js"></script>
 </body>
 </html>
