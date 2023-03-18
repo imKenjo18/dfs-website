@@ -70,20 +70,27 @@ if (empty($search)) {
                         </th>
                       </tr>
                     </thead>
-                  <tbody>
-            
-                  <?php
-                  $logCheck = "SELECT * FROM `logs` WHERE `timestamp` LIKE '%$search%' ORDER BY `logs`.`id` DESC";
-                  $logSQL = mysqli_query($connection, $logCheck);
+                    <tbody>
+                    <?php
+                    $logCheck = "SELECT * FROM `logs` WHERE `timestamp` LIKE '%$search%' ORDER BY `logs`.`id` DESC";
+                    $logSQL = mysqli_query($connection, $logCheck);
 
-                  while ($row = mysqli_fetch_assoc($logSQL)) {
-                    $logId = $row['id'];
-                    $log = $row['timestamp'];
-                    echo '<tr><td>[' . $row['timestamp'] . ']&nbsp&nbsp' . '<b>' . strtoupper($row['editor']) . '</b> ' .  $row['message'] . '</td></tr>';
-                  }
-
-                  echo '</tbody></table></form></div></div></div></div></div></div></section>';
-                  ?>
+                    while ($row = mysqli_fetch_assoc($logSQL)) {
+                      $logId = $row['id'];
+                      $log = $row['timestamp'];
+                      echo '<tr><td>[' . $row['timestamp'] . ']&nbsp&nbsp' . '<b>' . strtoupper($row['editor']) . '</b> ' .  $row['message'] . '</td></tr>';
+                    }
+                    ?>
+                    </tbody>
+                  </table>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <script src="main.js"></script>
 </body>

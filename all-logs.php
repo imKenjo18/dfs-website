@@ -52,52 +52,53 @@ require_once 'assets/dbhandler.php';
     </div>
   </nav><br><br>
 
-<div class="col">
-  <section id="dashboard" class="intro">
-    <div class="mask d-flex align-items-center h-100">
-      <div class="container mt-5 pt-5">
-        <div class="row justify-content-center">
-          <div class=" col-12">
-            <div class="mt-5 table-responsive table-striped shadow-lg bg-white" style="border-radius: 1rem;">
-              <div class="card-body" style="border-radius: 1rem;">
-                <form autocomplete="off" action="log-search">
-                  <table class="table mb-0">
-                    <thead>
-                      <tr>
-                        <th scope="col" class="text-center">
+  <div class="col">
+    <section id="dashboard" class="intro">
+      <div class="mask d-flex align-items-center h-100">
+        <div class="container mt-5 pt-5">
+          <div class="row justify-content-center">
+            <div class=" col-12">
+              <div class="mt-5 table-responsive table-striped shadow-lg bg-white" style="border-radius: 1rem;">
+                <div class="card-body" style="border-radius: 1rem;">
+                  <form autocomplete="off" action="log-search">
+                    <table class="table mb-0">
+                      <thead>
+                        <tr>
+                          <th scope="col" class="text-center">
 
-                        <form class="form-inline">
-                        <div class="form-group">
-                          Logs on <input class="asd" type="date" name="date" min="2000-01-01"> 
-                          <button type="submit" class="btn btn-dark btn-sm">OK</button>
-                        </div>
-                        </form>
-                        </th>
-                      </tr>
-                    </thead>
-                  <tbody>
-            
-                  <?php
-                  $logCheck = "SELECT * FROM `logs` ORDER BY `logs`.`id` DESC";
-                  $logSQL = mysqli_query($connection, $logCheck);
+                          <form class="form-inline">
+                          <div class="form-group">
+                            Logs on <input class="asd" type="date" name="date" min="2000-01-01"> 
+                            <button type="submit" class="btn btn-dark btn-sm">OK</button>
+                          </div>
+                          </form>
+                          </th>
+                        </tr>
+                      </thead>
+                    <tbody>
+              
+                    <?php
+                    $logCheck = "SELECT * FROM `logs` ORDER BY `logs`.`id` DESC";
+                    $logSQL = mysqli_query($connection, $logCheck);
 
-                  while ($row = mysqli_fetch_assoc($logSQL)) {
-                    $logId = $row['id'];
-                    $log = $row['timestamp'];
-                    echo '<tr><td>[' . $row['timestamp'] . ']&nbsp&nbsp' . '<b>' . strtoupper($row['editor']) . '</b> ' .  $row['message'] . '</td></tr>';
-                  }
+                    while ($row = mysqli_fetch_assoc($logSQL)) {
+                      $logId = $row['id'];
+                      $log = $row['timestamp'];
+                      echo '<tr><td>[' . $row['timestamp'] . ']&nbsp&nbsp' . '<b>' . strtoupper($row['editor']) . '</b> ' .  $row['message'] . '</td></tr>';
+                    }
 
-                  echo '</tbody></table></form></div></div></div></div></div></div></section>';
-                  ?>
+                    echo '</tbody></table></form></div></div></div></div></div></div></section>';
+                    ?>
 
-  <script src="main.js"></script>
 
+
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   </div>
-</section>
-</div>
+<script src="main.js"></script>
 </body>
 </html>

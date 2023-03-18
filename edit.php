@@ -92,7 +92,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
         <div class="card shadow-2-strong" style="border-radius: 1rem;">
           <div class="shadow-lg card-body p-5 text-left" style="border-radius: 1rem;">
-
             <form autocomplete="off" method="POST">
 
               <div class="form-group">
@@ -127,7 +126,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <form method="POST">
               <button class="mt-2 btn btn-secondary btn-block" name="cancel">CANCEL</button>
             </form>
-
           </div>
         </div>
       </div>

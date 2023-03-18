@@ -94,34 +94,30 @@ if ($accCheckResult > 0) {
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
         <div class="card shadow-2-strong" style="border-radius: 1rem;">
           <div class="shadow-lg card-body p-5 text-center" style="border-radius: 1rem;">
+            <h2>Login</h2>
+            <p>Please fill in your credentials to continue.</p>
 
-  <div class="wrapper">
-    <h2>Login</h2>
-    <p>Please fill in your credentials to continue.</p>
+            <?php
+            if (!empty($login_err)) {
+              echo '<div class="alert alert-danger">' . $login_err . '</div>';
+            }
+            ?>
 
-    <?php
-    if (!empty($login_err)) {
-      echo '<div class="alert alert-danger">' . $login_err . '</div>';
-    }
-    ?>
-
-    <form autocomplete="off" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
-      <div class="form-group">
-        <!-- <label>Username</label> -->
-        <input placeholder="Username" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
-        <span class="invalid-feedback"><?php echo $username_err; ?></span>
-      </div>
-      <div class="form-group">
-        <!-- <label>Password</label> -->
-        <input placeholder="Password" type="password" name="password" class="form-control<?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
-        <span class="invalid-feedback"><?php echo $password_err; ?></span>
-      </div>
-      <div class="form-group">
-        <input type="submit" class="btn btn-primary btn-sm, btn-block" value="Login">
-      </div>
-    </form>
-  </div>
-
+            <form autocomplete="off" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+              <div class="form-group">
+                <!-- <label>Username</label> -->
+                <input placeholder="Username" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
+                <span class="invalid-feedback"><?php echo $username_err; ?></span>
+              </div>
+              <div class="form-group">
+                <!-- <label>Password</label> -->
+                <input placeholder="Password" type="password" name="password" class="form-control<?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
+                <span class="invalid-feedback"><?php echo $password_err; ?></span>
+              </div>
+              <div class="form-group">
+                <input type="submit" class="btn btn-primary btn-sm, btn-block" value="Login">
+              </div>
+            </form>
           </div>
         </div>
       </div>

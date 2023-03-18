@@ -23,7 +23,6 @@ require_once 'assets/dbhandler.php';
         background-color: #bee1e6;
         opacity: 1">
   <nav class="navbar fixed-top navbarScroll shadow navbar-expand-lg" style="background: #bee1e6;">
-        
     <div class="container">
       <a href="" class="navbar-brand text-dark"><h2>Dashboard</h2></a>
       <form autocomplete="off" action="search">

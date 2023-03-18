@@ -178,49 +178,46 @@ if ($accCheckResult < 1) {
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
         <div class="card shadow-2-strong" style="border-radius: 1rem;">
           <div class="shadow-lg card-body p-5 text-center" style="border-radius: 1rem;">
+            <h2>Register</h2>
+            <p>Please fill this form to create an account.</p>
+            <form autocomplete="off" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 
-  <div class="wrapper">
-    <h2>Register</h2>
-    <p>Please fill this form to create an account.</p>
-    <form autocomplete="off" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+              <div class="form-group">
+                <!-- <label>Username</label> -->
+                <input placeholder="Username" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
+                <span class="invalid-feedback"><?php echo $username_err; ?></span>
+              </div>
 
-      <div class="form-group">
-        <!-- <label>Username</label> -->
-        <input placeholder="Username" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
-        <span class="invalid-feedback"><?php echo $username_err; ?></span>
-      </div>
+              <div class="form-group">
+                <!-- <label>Password</label> -->
+                <input placeholder="Password" type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
+                <span class="invalid-feedback"><?php echo $password_err; ?></span>
+              </div>
 
-      <div class="form-group">
-        <!-- <label>Password</label> -->
-        <input placeholder="Password" type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
-        <span class="invalid-feedback"><?php echo $password_err; ?></span>
-      </div>
+              <div class="form-group">
+                <!-- <label>Confirm Password</label> -->
+                <input placeholder="Confirm Password" type="password" name="confirm_password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
+                <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
+              </div>
 
-      <div class="form-group">
-        <!-- <label>Confirm Password</label> -->
-        <input placeholder="Confirm Password" type="password" name="confirm_password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
-        <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
-      </div>
+              <div class="form-group">
+                <?php
+                if ($accCheckResult < 1) {
+                  echo '<input type="submit" class="btn btn-primary btn-block" value="Register">';
+                }
 
-      <div class="form-group">
-        <?php
-        if ($accCheckResult < 1) {
-          echo '<input type="submit" class="btn btn-primary btn-block" value="Register">';
-        }
-
-        if ($accCheckResult == 1) {
-          echo '<input type="submit" class="btn btn-primary btn-block" value="ADD ACCOUNT">';
-          echo '<button  class="btn btn-secondary btn-block" name="cancel">CANCEL</button>';
-          
-          if (isset($_POST['cancel'])) {
-            header('location: manage-accounts');
-          }
-        }
-        ?>
-      </div>
-  </form>
-  </div>
-
+                if ($accCheckResult == 1) {
+                  echo '<input type="submit" class="btn btn-primary btn-block" value="ADD ACCOUNT">';
+                  echo '<button  class="btn btn-secondary btn-block" name="cancel">CANCEL</button>';
+                  
+                  if (isset($_POST['cancel'])) {
+                    header('location: manage-accounts');
+                  }
+                }
+                ?>
+              </div>
+              
+            </form>
           </div>
         </div>
       </div>
