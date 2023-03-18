@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $addProductQuery = mysqli_query($connection, $addProductSQL);
     $add_success = 'Successfully added.';
 
-    $addLogSQL = "INSERT INTO `logs` (editor, message) VALUES ('" . $_SESSION['privilege'] . "', 'added a product. (Barcode: $barcode | Name: $product_name | Quantity: $quantity | Price: $price | Stock Date: $stock_date)')";
+    $addLogSQL = "INSERT INTO `logs` (editor, message) VALUES ('" . $_SESSION['privilege'] . "', 'added a product. (<b>Barcode:</b> $barcode | <b>Name:</b> $product_name | <b>Quantity:</b> $quantity | <b>Price:</b> $price | <b>Stock Date:</b> $stock_date)')";
     $addLogQuery = mysqli_query($connection, $addLogSQL);
   }
 }

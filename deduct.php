@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $param_deduction = $quantity - $deduction;
 
       if (mysqli_stmt_execute($stmt)) {
-        $addLogSQL = "INSERT INTO `logs` (editor, message) VALUES ('" . $_SESSION['privilege'] . "', 'deducted the QUANTITY of (Barcode: " . $productResult['barcode'] . " | Name: " . $productResult['name'] . " | Stock Date: " . substr($productResult['stock_date'], 0, 10) . ") from " . $productResult['quantity'] . " to $param_deduction')";
+        $addLogSQL = "INSERT INTO `logs` (editor, message) VALUES ('" . $_SESSION['privilege'] . "', 'deducted the QUANTITY of (<b>Barcode:</b> " . $productResult['barcode'] . " | <b>Name:</b> " . $productResult['name'] . " | <b>Stock Date:</b> " . substr($productResult['stock_date'], 0, 10) . ") from " . $productResult['quantity'] . " to $param_deduction')";
         $addLogQuery = mysqli_query($connection, $addLogSQL);
 
         header('location: dashboard');
