@@ -5,6 +5,8 @@ define('DB_SERVER', 'localhost');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
 
+date_default_timezone_set('Asia/Manila');
+
 $loginConn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD);
 //Creates database if it doesn't exist
 $createDB = "CREATE DATABASE IF NOT EXISTS `client_website`";
