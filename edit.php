@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $param_price = $price;
 
       if (mysqli_stmt_execute($stmt)) {
-        $addLogSQL = "INSERT INTO `logs` (editor, message) VALUES ('" . $_SESSION['privilege'] . "', 'edited a product. (<b>Barcode:</b> " . $productResult['barcode'] . " → $barcode | <b>Name:</b> " . $productResult['name'] . " → $product_name | <b>Quantity:</b> " . $productResult['quantity'] . " → $quantity | <b>Price:</b> " . $productResult['price'] . " → $price | <b>Stock Date:</b> " . substr($productResult['stock_date'], 0, 10) . " → $stock_date)')";
+        $addLogSQL = "INSERT INTO `logs` (editor, message) VALUES ('" . $_SESSION['privilege'] . "', '<span class=" . "text-primary" . "><b>edited</b></span> a product. (<b>Barcode:</b> " . $productResult['barcode'] . " → $barcode | <b>Name:</b> " . $productResult['name'] . " → $product_name | <b>Quantity:</b> " . $productResult['quantity'] . " → $quantity | <b>Price:</b> " . $productResult['price'] . " → $price | <b>Stock Date:</b> " . substr($productResult['stock_date'], 0, 10) . " → $stock_date)')";
         $addLogQuery = mysqli_query($connection, $addLogSQL);
 
         header('location: dashboard');

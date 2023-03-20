@@ -24,7 +24,7 @@ $quantity = $productResult['quantity'];
 $price = $productResult['price'];
 $stock_date = substr($productResult['stock_date'], 0, 10);
 
-$addLogSQL = "INSERT INTO `logs` (editor, message) VALUES ('" . $_SESSION['privilege'] . "', 'deleted a product. (<b>Barcode:</b> $barcode | <b>Name:</b> $product_name | <b>Quantity:</b> $quantity | <b>Price:</b> $price | <b>Stock Date:</b> $stock_date)')";
+$addLogSQL = "INSERT INTO `logs` (editor, message) VALUES ('" . $_SESSION['privilege'] . "', '<span class=" . "text-danger" . "><b>deleted</b></span> a product. (<b>Barcode:</b> $barcode | <b>Name:</b> $product_name | <b>Quantity:</b> $quantity | <b>Price:</b> $price | <b>Stock Date:</b> $stock_date)')";
 mysqli_query($connection, $addLogSQL);
 
 $deleteSql = "DELETE FROM `products` WHERE `products`.`id` = '$productId'";

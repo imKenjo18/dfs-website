@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $addProductQuery = mysqli_query($connection, $addProductSQL);
     $add_success = 'Successfully added.';
 
-    $addLogSQL = "INSERT INTO `logs` (editor, message) VALUES ('" . $_SESSION['privilege'] . "', 'added a product. (<b>Barcode:</b> $barcode | <b>Name:</b> $product_name | <b>Quantity:</b> $quantity | <b>Price:</b> $price | <b>Stock Date:</b> $stock_date)')";
+    $addLogSQL = "INSERT INTO `logs` (editor, message) VALUES ('" . $_SESSION['privilege'] . "', '<span class=" . "text-success" . "><b>added</b></span> a product. (<b>Barcode:</b> $barcode | <b>Name:</b> $product_name | <b>Quantity:</b> $quantity | <b>Price:</b> $price | <b>Stock Date:</b> $stock_date)')";
     $addLogQuery = mysqli_query($connection, $addLogSQL);
   }
 }
@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <form autocomplete="off" method="POST">
               <div class="form-group">
                 <label>Barcode</label>
-                <input id="barcode" class="form-control <?php echo (!empty($barcode_err)) ? 'is-invalid' : ''; ?>" name="barcode" value="<?php
+                <input autofocus id="barcode" class="form-control <?php echo (!empty($barcode_err)) ? 'is-invalid' : ''; ?>" name="barcode" value="<?php
                 if (empty($add_success)) {
                   if (!empty($barcode)) {
                     echo $barcode;

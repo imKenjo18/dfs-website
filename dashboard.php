@@ -31,7 +31,7 @@ require_once 'assets/functions.php';
       <form autocomplete="off" action="search">
         <div class="input-group">
           <div class="form-outline">
-            <input type="search" id="form1" class="form-control" placeholder="Search Barcode" name="barcode">
+            <input autofocus type="search" id="form1" class="form-control" placeholder="Search Barcode" name="barcode">
           </div>
           <button type="submit" class="btn btn-info">
             <img class="icons" id="search-svg" src="assets/search.svg" width="20" height="20" alt="Search"></img>
@@ -67,19 +67,15 @@ require_once 'assets/functions.php';
 
     // echo '<table id="product-table" class="product-table"><tr><th>Quantity</th><th>Product Name</th><th>Stock Date</th></tr>';
 
-    echo '<section><section class="intro"><div class="mask d-flex align-items-center h-100"><div class="container mt-5 pt-5"><div class="row justify-content-center"><div class="mt-5 col-12"><div class="table-responsive table-striped shadow-lg bg-white" style="border-radius: 1rem;"><div class="card-body text-center" style="border-radius: 1rem;"><table class="table mb-0"><thead><tr><th scope="col">Barcode</th><th scope="col">Quantity</th><th scope="col">Product Name</th><th scope="col">Stock Date</th><th scope="col">Price</th><th scope="col">Total</th><th scope="col"></th></tr></thead><tbody>';
+    echo '<section><section class="intro"><div class="mask d-flex align-items-center h-100"><div class="container mt-5 pt-5"><div class="row justify-content-center"><div class="mt-5 col-12"><div class="table-responsive table-striped shadow-lg bg-white" style="border-radius: 1rem;"><div class="card-body text-center" style="border-radius: 1rem;"><table class="table mb-0"><thead><tr><th scope="col">Barcode</th><th scope="col">Quantity</th><th scope="col">Product Name</th><th scope="col">Stock Date</th><th scope="col"></th></tr></thead><tbody>';
 
     while ($row = mysqli_fetch_assoc($productSQL)) {
-      $productTotal = $row['quantity'] * $row['price'];
-
       $quantityFormat = number_format($row['quantity']);
-      $priceFormat = count_format_dec($row['price']);
-      $totalFormat = count_format_dec($productTotal);
 
       $stockDate = substr($row['stock_date'], 0, 10);
       $productId = $row['id'];
 
-      echo '<tr><td>' . $row['barcode'] . '</td><td>' . $quantityFormat . '</td><td>' . $row['name'] . '</td><td>' . $stockDate . '</td><td>₱' . $priceFormat . '</td><td>₱'. $totalFormat . '</td><td class="functions"><a href="deduct?id=' . $row['id'] .'" title="Deduct Quantity"><img class="icons" id="deduct-svg" src="assets/deduct.svg" width="25" height="25" alt="Deduct Quantity"></img></a></td></tr>';
+      echo '<tr><td>' . $row['barcode'] . '</td><td>' . $quantityFormat . '</td><td>' . $row['name'] . '</td><td>' . $stockDate . '</td><td class="functions"><a href="deduct?id=' . $row['id'] .'" title="Deduct Quantity"><img class="icons" id="deduct-svg" src="assets/deduct.svg" width="25" height="25" alt="Deduct Quantity"></img></a></td></tr>';
     }
   }
 

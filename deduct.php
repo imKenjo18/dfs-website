@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $param_deduction = $quantity - $deduction;
 
       if (mysqli_stmt_execute($stmt)) {
-        $addLogSQL = "INSERT INTO `logs` (editor, message) VALUES ('" . $_SESSION['privilege'] . "', 'deducted the QUANTITY of (<b>Barcode:</b> " . $productResult['barcode'] . " | <b>Name:</b> " . $productResult['name'] . " | <b>Stock Date:</b> " . substr($productResult['stock_date'], 0, 10) . ") from <b>" . $productResult['quantity'] . "</b> to <b>$param_deduction</b>')";
+        $addLogSQL = "INSERT INTO `logs` (editor, message) VALUES ('" . $_SESSION['privilege'] . "', '<span class=" . "text-warning" . "><b>deducted</b></span> the QUANTITY of (<b>Barcode:</b> " . $productResult['barcode'] . " | <b>Name:</b> " . $productResult['name'] . " | <b>Stock Date:</b> " . substr($productResult['stock_date'], 0, 10) . ") from <b>" . $productResult['quantity'] . "</b> to <b>$param_deduction</b>')";
         $addLogQuery = mysqli_query($connection, $addLogSQL);
 
         header('location: dashboard');
@@ -98,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
               <div class="form-group">
                 <label>Amount to Deduct</label>
-                <input type="number" class="form-control <?php echo (!empty($deduction_err)) ? 'is-invalid' : ''; ?>" name="deduction">
+                <input autofocus type="number" class="form-control <?php echo (!empty($deduction_err)) ? 'is-invalid' : ''; ?>" name="deduction">
                 <span class="invalid-feedback"><?php echo $deduction_err; ?></span>
               </div>
 

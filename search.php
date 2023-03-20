@@ -38,7 +38,7 @@ if (empty($search)) {
       <form autocomplete="off" action="search">
         <div class="input-group">
           <div class="form-outline">
-            <input type="search" id="form1" class="form-control" placeholder="Search Barcode" name="barcode">
+            <input autofocus type="search" id="form1" class="form-control" placeholder="Search Barcode" name="barcode">
           </div>
           <button type="submit" class="btn btn-info">
             <img class="icons" id="search-svg" src="assets/search.svg" width="20" height="20" alt="Search"></img>
