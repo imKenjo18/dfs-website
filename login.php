@@ -80,20 +80,21 @@ if ($accCheckResult > 0) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Login</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body style="
-background: radial-gradient(circle at 50% 100%, #ffffff80 5%, #ffffff 5% 10%, #ffffff80 10% 15%, #ffffff 15% 20%, #ffffff80 20% 25%, #ffffff 25% 30%, #ffffff80 30% 35%, #ffffff 35% 40%, transparent 40%), radial-gradient(circle at 100% 50%, #ffffff80 5%, #ffffff 5% 10%, #ffffff80 10% 15%, #ffffff 15% 20%, #ffffff80 20% 25%, #ffffff 25% 30%, #ffffff80 30% 35%, #ffffff 35% 40%, transparent 40%), radial-gradient(circle at 50% 0%, #ffffff80 5%, #ffffff 5% 10%, #ffffff80 10% 15%, #ffffff 15% 20%, #ffffff80 20% 25%, #ffffff 25% 30%, #ffffff80 30% 35%, #ffffff 35% 40%, transparent 40%), radial-gradient(circle at 0 50%, #ffffff80 5%, #ffffff 5% 10%, #ffffff80 10% 15%, #ffffff 15% 20%, #ffffff80 20% 25%, #ffffff 25% 30%, #ffffff80 30% 35%, #ffffff 35% 40%, transparent 40%);
-  background-size: 1em 1em;
-  background-color: #bee1e6;
-  opacity: 1">
+  background: url('assets/bg4.png');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;">
 
 <section class="vh-100">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
+    <!-- <img src="assets/logo1.png" height="120" class="position-absolute mt-5" style="top: 8%; left: 43%; z-index: 1;"> -->
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-        <div class="card shadow-2-strong" style="border-radius: 1rem;">
+        <div class="card shadow-2-strong border border-dark" style="border-radius: 1rem;">
           <div class="shadow-lg card-body p-5 text-center" style="border-radius: 1rem;">
             <h2>Login</h2>
             <p>Please fill in your credentials to continue.</p>
@@ -107,16 +108,16 @@ background: radial-gradient(circle at 50% 100%, #ffffff80 5%, #ffffff 5% 10%, #f
             <form autocomplete="off" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
               <div class="form-group">
                 <!-- <label>Username</label> -->
-                <input placeholder="Username" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
+                <input placeholder="Username" name="username" class="form-control rounded-pill shadow-sm border border-dark  <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
                 <span class="invalid-feedback"><?php echo $username_err; ?></span>
               </div>
               <div class="form-group">
                 <!-- <label>Password</label> -->
-                <input placeholder="Password" type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
+                <input placeholder="Password" type="password" name="password" class="form-control rounded-pill shadow-sm border border-dark <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
                 <span class="invalid-feedback"><?php echo $password_err; ?></span>
-              </div>
+              </div><br>
               <div class="form-group">
-                <input type="submit" class="btn btn-primary btn-sm, btn-block" value="Login">
+                <center><input type="submit" class="btn btn-outline-primary shadow btn-block" style="width: 60%;" value="Login"></center>
               </div>
             </form>
           </div>

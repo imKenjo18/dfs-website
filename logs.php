@@ -27,40 +27,40 @@ if (empty($search)) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Logs on <?php echo $search; ?></title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"> -->
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body style="
-  background: radial-gradient(circle at 50% 100%, #ffffff80 5%, #ffffff 5% 10%, #ffffff80 10% 15%, #ffffff 15% 20%, #ffffff80 20% 25%, #ffffff 25% 30%, #ffffff80 30% 35%, #ffffff 35% 40%, transparent 40%), radial-gradient(circle at 100% 50%, #ffffff80 5%, #ffffff 5% 10%, #ffffff80 10% 15%, #ffffff 15% 20%, #ffffff80 20% 25%, #ffffff 25% 30%, #ffffff80 30% 35%, #ffffff 35% 40%, transparent 40%), radial-gradient(circle at 50% 0%, #ffffff80 5%, #ffffff 5% 10%, #ffffff80 10% 15%, #ffffff 15% 20%, #ffffff80 20% 25%, #ffffff 25% 30%, #ffffff80 30% 35%, #ffffff 35% 40%, transparent 40%), radial-gradient(circle at 0 50%, #ffffff80 5%, #ffffff 5% 10%, #ffffff80 10% 15%, #ffffff 15% 20%, #ffffff80 20% 25%, #ffffff 25% 30%, #ffffff80 30% 35%, #ffffff 35% 40%, transparent 40%);
-  background-size: 1em 1em;
-  background-color: #bee1e6;
-  opacity: 1">
+  background: url('assets/bg4.png');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;">
   
-  <nav class="navbar fixed-top navbarScroll shadow navbar-expand-lg" style="background-color: #bee1e6;">
+  <nav class="navbar fixed-top navbarScroll shadow navbar-expand-lg" style="background-color: #457b9d;">
     <div class="container">
-      <a href="dashboard" class="navbar-brand"><h2 class="text-dark">Dashboard</h2></a>
+    <a href="dashboard" class="navbar-brand text-dark"><img src="assets/logo1.png" height="55"></a>
       <form action="search">
         <div class="input-group">
           <div class="form-outline">
-            <input autofocus type="search" id="form1" class="form-control" placeholder="Search Barcode" name="barcode">
+            <input autofocus type="search" id="form1" class="form-control shadow" placeholder="Search Barcode" name="barcode">
           </div>
-          <button type="submit" class="btn btn-info">
+          <button type="submit" class="btn btn-primary shadow">
             <img class="icons" id="search-svg" src="assets/search.svg" width="20" height="20" alt="Search"></img>
           </button>
         </div>
       </form>
-      <a class="nav-link" href="add-product"><button class="btn btn-info">Add Product</button></a>
-      <a class="nav-link" href="manage-accounts"><button class="btn btn-info">Manage Accounts</button></a>
-      <a class="nav-link" href="logs"><button id="logs" class="btn btn-info" name="logs">Logs</button></a>
-      <a class="nav-link" href="assets/logout"><button id="logout" class="btn btn-danger" name="logout">Logout</button></a>
+      <a class="nav-link" href="add-product"><button class="btn btn-primary shadow rounded-pill">Add Product</button></a>
+      <a class="nav-link" href="manage-accounts"><button class="btn btn-primary shadow rounded-pill">Manage Accounts</button></a>
+      <a class="nav-link" href="logs"><button id="logs" class="btn btn-primary shadow rounded-pill" name="logs">Logs</button></a>
+      <a class="nav-link" href="assets/logout"><button id="logout" class="btn btn-danger shadow-sm rounded-pill" name="logout">Logout</button></a>
     </div>
   </nav>
   <section id="dashboard" class="intro">
     <div class="mask d-flex align-items-center h-100">
-      <div class="container mt-5 pt-5">
+      <div class="container mt-3">
         <div class="row justify-content-center">
-          <div class="mt-5 col-12">
+          <div class="mt-5 col-13">
             <div class="mt-5 table-responsive table-striped shadow-lg bg-white" style="border-radius: 1rem;">
               <div class="card-body" style="border-radius: 1rem;">
                 <form>

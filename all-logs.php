@@ -20,16 +20,16 @@ require_once 'assets/dbhandler.php';
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Logs</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"> -->
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body style="
-  background: radial-gradient(circle at 50% 100%, #ffffff80 5%, #ffffff 5% 10%, #ffffff80 10% 15%, #ffffff 15% 20%, #ffffff80 20% 25%, #ffffff 25% 30%, #ffffff80 30% 35%, #ffffff 35% 40%, transparent 40%), radial-gradient(circle at 100% 50%, #ffffff80 5%, #ffffff 5% 10%, #ffffff80 10% 15%, #ffffff 15% 20%, #ffffff80 20% 25%, #ffffff 25% 30%, #ffffff80 30% 35%, #ffffff 35% 40%, transparent 40%), radial-gradient(circle at 50% 0%, #ffffff80 5%, #ffffff 5% 10%, #ffffff80 10% 15%, #ffffff 15% 20%, #ffffff80 20% 25%, #ffffff 25% 30%, #ffffff80 30% 35%, #ffffff 35% 40%, transparent 40%), radial-gradient(circle at 0 50%, #ffffff80 5%, #ffffff 5% 10%, #ffffff80 10% 15%, #ffffff 15% 20%, #ffffff80 20% 25%, #ffffff 25% 30%, #ffffff80 30% 35%, #ffffff 35% 40%, transparent 40%);
-  background-size: 1em 1em;
-  background-color: #bee1e6;
-  opacity: 1">
+  background: url('assets/fish4.png');
+  background-repeat: repeat;
+  background-size: 300px 300px;
+  opacity: 1;">
         
   <nav class="navbar fixed-top navbarScroll shadow navbar-expand-lg" style="background-color: #bee1e6;">
     <div class="container">
@@ -56,10 +56,10 @@ require_once 'assets/dbhandler.php';
       <div class="mask d-flex align-items-center h-100">
         <div class="container mt-5 pt-5">
           <div class="row justify-content-center">
-            <div class=" col-12">
+            <div class=" col-13">
               <div class="mt-5 table-responsive table-striped shadow-lg bg-white" style="border-radius: 1rem;">
                 <div class="card-body" style="border-radius: 1rem;">
-                  <form autocomplete="off" action="log-search">
+                  <form autocomplete="off" action="logs">
                     <table class="table mb-0">
                       <thead>
                         <tr>
