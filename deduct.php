@@ -89,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
               <div class="form-group">
                 <label><b>Product Name</b></label>
-                <input disabled class="form-control shadow-sm rounded-pill border border-dark" name="product_name" value="<?php echo $productResult['name']; ?>">
+                <input disabled class="form-control shadow-sm rounded-pill border border-dark" name="product_name" value="<?php echo htmlspecialchars($productResult['name']); ?>">
               </div>
 
               <div class="form-group">

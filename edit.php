@@ -123,7 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
               <div class="form-group">
                 <label><b>Product Name</b></label>
-                <input class="form-control shadow-sm rounded-pill border border-dark <?php echo (!empty($product_name_err)) ? 'is-invalid' : ''; ?>" name="product_name" value="<?php echo $productResult['name']; ?>">
+                <input class="form-control shadow-sm rounded-pill border border-dark <?php echo (!empty($product_name_err)) ? 'is-invalid' : ''; ?>" name="product_name" value="<?php echo htmlspecialchars($productResult['name']); ?>">
                 <span class="invalid-feedback"><?php echo $product_name_err; ?></span>
               </div>
 
